@@ -10,6 +10,22 @@ body.home {
     margin-top: -80px !important;
   }
 }
+body.home.has-top-bar aside.top-bar {
+  z-index: 9999;
+  top: -24px;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  position: absolute;
+  border-bottom-left-radius: 19px;
+  border-bottom-right-radius: 19px;
+  margin-top: 24px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+body.home.has-top-bar aside.top-bar .top-bar__inner {
+  padding-block: 10px;
+}
 body.home:not(.scrolleddown-10) .main-navigation:not(.is-open) {
   background-color: transparent !important;
   top: 24px;
@@ -43,7 +59,7 @@ body.home > main > .section.section--header.section--layout-g > .header-video-bg
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  max-height: 700px;
+  max-height: 86vh;
 }
 body.home > main > .section.section--header.section--layout-g > .header-video-bg::before {
   content: "";
@@ -73,12 +89,87 @@ body.home > main > .section.section--header.section--layout-g > .header-video-bg
   text-align: center;
   color: #fff;
 }
+@media (max-width: 992px) {
+  body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video-bg__content {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video-bg__content h1.h1 {
+    margin-bottom: 0.4em;
+    line-height: 1;
+  }
+}
 body.home > main > .section.section--header.section--layout-g > .header-video-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background: color-mix(in srgb, #021629 65%, transparent);
   border-radius: 18px;
+  pointer-events: none;
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg.is-paused .header-video__play {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (hover: hover) {
+  body.home > main > .section.section--header.section--layout-g > .header-video-bg.is-playing:hover .header-video__stop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media (max-width: 991.98px) {
+  body.home > main > .section.section--header.section--layout-g > .header-video-bg.is-playing .header-video__stop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__stop,
+body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__play {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-basic-light);
+  background-color: color-mix(in srgb, var(--color-basic-dark) 45%, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__stop .icon-wrapper,
+body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__play .icon-wrapper {
+  display: block;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+@media (max-width: 767.98px) {
+  body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__stop,
+  body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__play {
+    display: none;
+  }
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__stop .icon-wrapper {
+  -webkit-mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-pause.svg");
+  mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-pause.svg");
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video__play .icon-wrapper {
+  -webkit-mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-play.svg");
+  mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-play.svg");
 }
 body.home > main > .section.section--header.section--layout-g .header-video-bg__placeholder,
 body.home > main > .section.section--header.section--layout-g .header-video-bg__media {
@@ -127,7 +218,7 @@ body.home > main > .section.section--header.section--layout-g > .container-fluid
 }
 body.home > main > .section.section--home-special {
   background-color: #530505;
-  padding-top: 24px;
+  padding-top: 0;
 }
 body.home > main > .section.section--home-special > .container {
   width: 100%;

@@ -5,6 +5,28 @@ body.home {
         margin-top: -80px !important;
     }
 
+    &.has-top-bar {
+        aside.top-bar {
+            z-index: 9999;
+            top: -24px;
+            left: 0;
+            right: 0;
+            bottom: auto;
+            position: absolute;
+            border-bottom-left-radius: 19px;
+            border-bottom-right-radius: 19px;
+            margin-top: 24px;
+            margin-left: 12px;
+            margin-right: 12px;
+            // opacity: .8;
+    
+            .top-bar__inner {
+                padding-block: 10px;
+            }
+        }
+    }
+
+
     // Main navigation
     &:not(.scrolleddown-10) {
         .main-navigation:not(.is-open) {
@@ -64,7 +86,7 @@ body.home {
             position: relative;
             border-radius: 18px;
             overflow: hidden;
-            max-height: 700px;
+            max-height: 86vh;
 
             &::before { // top gradient
                 content: "";
@@ -93,6 +115,17 @@ body.home {
                 align-items: center;
                 text-align: center;
                 color: #fff;
+
+                @media (max-width: 992px) {
+                    width: 86%;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    h1.h1 {
+                        margin-bottom: .4em;
+                        line-height: 1;
+                    }
+                }
             }
             
             &::after { // video overlay
@@ -101,6 +134,76 @@ body.home {
                 inset: 0;
                 background: color-mix(in srgb, #021629 65%, transparent);
                 border-radius: 18px;
+                pointer-events: none;
+            }
+
+            &.is-paused .header-video__play {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            &.is-playing {
+                @media (hover: hover) {
+                    &:hover .header-video__stop {
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
+
+                @media (max-width: 991.98px) {
+                    .header-video__stop {
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
+            }
+
+            .header-video__stop,
+            .header-video__play {
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.75rem;
+                height: 2.75rem;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                border-radius: 50%;
+                cursor: pointer;
+                color: var(--color-basic-light);
+                background-color: color-mix(in srgb, var(--color-basic-dark) 45%, transparent);
+                opacity: 0;
+                pointer-events: none;
+
+                .icon-wrapper {
+                    display: block;
+                    flex-shrink: 0;
+                    background-color: currentColor;
+                    -webkit-mask-size: contain;
+                    mask-size: contain;
+                    -webkit-mask-repeat: no-repeat;
+                    mask-repeat: no-repeat;
+                    -webkit-mask-position: center;
+                    mask-position: center;
+                }
+
+                @media (max-width: 767.98px) {
+                    display: none;
+                }
+            }
+
+            .header-video__stop .icon-wrapper {
+                -webkit-mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-pause.svg");
+                mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-pause.svg");
+            }
+
+            .header-video__play .icon-wrapper {
+                -webkit-mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-play.svg");
+                mask-image: url("../../../didapress_4/assets/icons/icon-themes/nucleo-simple/basic/32-media-play.svg");
             }
         }
     
@@ -163,10 +266,9 @@ body.home {
     // Home special (quicklinks)
     > main > .section.section--home-special {
         background-color: #530505;
-        padding-top: 24px;
+        padding-top: 0;
 
-        > .container {
-           
+        > .container {           
             width: 100%;
             max-width: 100%;
 

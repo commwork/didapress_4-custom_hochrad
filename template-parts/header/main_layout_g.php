@@ -22,7 +22,7 @@ $card_count = max( 0, min( 5, $card_count ) );
 
     <!-- Custom text + video background -->
     <?php if ( is_front_page() ) : ?>
-        <div class="header-video-bg" aria-hidden="true">
+        <div class="header-video-bg is-paused" data-header-video>
             <div class="header-video-bg__content">
                 <div class="section__head">
                     <h1 class="h1">Willkommen am Gymnasium Hochrad.</h1>
@@ -41,9 +41,16 @@ $card_count = max( 0, min( 5, $card_count ) );
                 height="751"
                 decoding="async"
             >
-            <video class="header-video-bg__media" autoplay muted loop playsinline preload="metadata">
+            <video class="header-video-bg__media header-video__media" muted loop playsinline preload="metadata">
                 <source src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/video/homepage-globe.mp4' ); ?>" type="video/mp4" media="(min-width: 768px)">
             </video>
+
+            <button type="button" class="header-video__stop" aria-label="<?php esc_attr_e( 'Video stoppen', 'didapress_4' ); ?>">
+                <span class="icon-wrapper size-24" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="header-video__play" aria-label="<?php esc_attr_e( 'Video abspielen', 'didapress_4' ); ?>">
+                <span class="icon-wrapper size-24" aria-hidden="true"></span>
+            </button>
         </div>
     <?php endif; ?>
 
