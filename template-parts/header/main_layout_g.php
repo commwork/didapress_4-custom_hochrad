@@ -34,11 +34,11 @@ $card_count = max( 0, min( 5, $card_count ) );
             </div>
             <div class="header-video-bg__content">
                 <div class="section__head">
-                    <h1 class="h1">Willkommen am Gymnasium Hochrad.</h1>
+                    <h1 class="h1">Willkommen am <br /> Gymnasium Hochrad.</h1>
                 </div>
                 
                 <div class="section__foot">
-                    <div class="intro-text lcnmb"><p>Gemeinsam an Herausforderungen lernen in internationalen Bezügen.</p></div>
+                    <div class="intro-text lcnmb"><p>Gemeinsam an Herausforderungen lernen <br /> in internationalen Bezügen.</p></div>
                 </div>
             </div>
 

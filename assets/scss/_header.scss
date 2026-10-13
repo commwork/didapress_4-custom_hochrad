@@ -211,15 +211,21 @@ body.home {
                 opacity: 0.1;
                 transition: opacity 0.3s ease-out;
 
+                h1.h1 {
+                    margin-bottom: .4em;
+                    line-height: 1;
+                }
+
+                .section__foot .intro-text {
+                    p {
+                        line-height: 1.4;
+                    }
+                }
+
                 @media (max-width: 992px) {
                     width: 86%;
                     margin-left: auto;
-                    margin-right: auto;
-
-                    h1.h1 {
-                        margin-bottom: .4em;
-                        line-height: 1;
-                    }
+                    margin-right: auto;                    
                 }
 
                 // Colored background for headline and intro text (optional)
