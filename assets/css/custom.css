@@ -5,6 +5,11 @@
 body.home {
   margin-top: -120px !important;
 }
+@media (max-width: 1200px) {
+  body.home {
+    margin-top: -80px !important;
+  }
+}
 body.home:not(.scrolleddown-10) .main-navigation:not(.is-open) {
   background-color: transparent !important;
   top: 24px;
@@ -30,7 +35,7 @@ body.home:not(.scrolleddown-10) .main-navigation:not(.is-open) .main-navigation_
 body.home > main > .section.section--header.section--layout-g {
   position: relative;
   overflow: hidden;
-  padding: 24px;
+  padding: 24px !important;
   background-color: #530505;
   background-image: none;
 }
@@ -39,6 +44,22 @@ body.home > main > .section.section--header.section--layout-g > .header-video-bg
   border-radius: 18px;
   overflow: hidden;
   max-height: 700px;
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, color-mix(in srgb, #001d39 85%, transparent), transparent);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+@media (max-width: 1200px) {
+  body.home > main > .section.section--header.section--layout-g > .header-video-bg {
+    max-height: 600px;
+    min-height: 600px;
+    height: 600px;
+  }
 }
 body.home > main > .section.section--header.section--layout-g > .header-video-bg .header-video-bg__content {
   position: absolute;
@@ -52,27 +73,33 @@ body.home > main > .section.section--header.section--layout-g > .header-video-bg
   text-align: center;
   color: #fff;
 }
-body.home > main > .section.section--header.section--layout-g > .header-video-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  height: 200px;
-  background: linear-gradient(to bottom, color-mix(in srgb, #001d39 85%, transparent), transparent);
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-}
 body.home > main > .section.section--header.section--layout-g > .header-video-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: color-mix(in srgb, #003565 45%, transparent);
+  background: color-mix(in srgb, #021629 65%, transparent);
   border-radius: 18px;
 }
+body.home > main > .section.section--header.section--layout-g .header-video-bg__placeholder,
 body.home > main > .section.section--header.section--layout-g .header-video-bg__media {
   width: 100%;
   height: 100%;
+  min-height: 100%;
   object-fit: cover;
   display: block;
+}
+@media (min-width: 768px) {
+  body.home > main > .section.section--header.section--layout-g .header-video-bg__placeholder {
+    display: none;
+  }
+}
+body.home > main > .section.section--header.section--layout-g .header-video-bg__media {
+  display: none;
+}
+@media (min-width: 768px) {
+  body.home > main > .section.section--header.section--layout-g .header-video-bg__media {
+    display: block;
+  }
 }
 body.home > main > .section.section--header.section--layout-g > .container-fluid {
   position: relative;
@@ -107,10 +134,19 @@ body.home > main > .section.section--home-special > .container {
   max-width: 100%;
 }
 body.home > main > .section.section--home-special > .container > .home-special-quicklinks {
-  background-color: #8c0126;
+  background-color: #daedff;
   margin-left: 0;
   margin-right: 0;
   padding: 2rem;
   border-radius: 18px;
+}
+body.home > main > .section.section--home-special > .container > .home-special-quicklinks .home-special-quicklinks__list {
+  gap: 2rem;
+}
+body.home > main > .section.section--home-special > .container > .home-special-quicklinks .home-special-quicklinks__list li a {
+  color: #530505;
+}
+body.home > main > .section.section--home-special > .container > .home-special-quicklinks .home-special-quicklinks__list li a .home-special-quicklinks__icon {
+  background-color: #c10a27;
 }
 /*# sourceMappingURL=custom.css.map */

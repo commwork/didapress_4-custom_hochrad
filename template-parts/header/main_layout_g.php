@@ -20,9 +20,9 @@ $card_count = max( 0, min( 5, $card_count ) );
 ?>
 <section class="section section--header <?php echo esc_attr( trim( didapress_4_bem_from_layout( $layout_ID_header ) . ' ' . didapress_4_bem_from_color( $color_ID_header ) ) ); ?>">
 
+    <!-- Custom text + video background -->
     <?php if ( is_front_page() ) : ?>
         <div class="header-video-bg" aria-hidden="true">
-
             <div class="header-video-bg__content">
                 <div class="section__head">
                     <h1 class="h1">Willkommen am Gymnasium Hochrad.</h1>
@@ -33,9 +33,16 @@ $card_count = max( 0, min( 5, $card_count ) );
                 </div>
             </div>
 
-
+            <img
+                class="header-video-bg__placeholder"
+                src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/video-placeholder.jpg' ); ?>"
+                alt=""
+                width="1000"
+                height="751"
+                decoding="async"
+            >
             <video class="header-video-bg__media" autoplay muted loop playsinline preload="metadata">
-                <source src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/video/homepage-globe.mp4' ); ?>" type="video/mp4">
+                <source src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/video/homepage-globe.mp4' ); ?>" type="video/mp4" media="(min-width: 768px)">
             </video>
         </div>
     <?php endif; ?>
