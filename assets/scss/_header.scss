@@ -118,9 +118,13 @@ body.home {
     > main > .section.section--header.section--layout-g {
         position: relative;
         overflow: hidden;
-        padding: 24px !important;
+        padding: 24px;
         background-color: #530505;
         background-image: none;
+
+        @media screen and (max-width: 992px) {
+            padding: 12px;
+        }
 
         > .header-video-bg {
             position: relative;
@@ -361,6 +365,10 @@ body.home {
             width: 100%;
             max-width: 100%;
             padding-inline: 24px !important;
+
+            @media screen and (max-width: 992px) {
+                padding-inline: 12px !important;
+            }
 
             > .home-special-quicklinks {
                 background-color: #daedff;
