@@ -1,28 +1,35 @@
-html.is-layout-g-loading {
-    overflow: hidden;
-
+html.is-layout-g-loading,
+html.is-header-opening {
     body.home .main-navigation {
         visibility: hidden;
         opacity: 0;
     }
 
     body.home > main > .section.section--header.section--layout-g {
-        display: flex;
-        flex-direction: column;
         height: 100vh;
         max-height: 100vh;
+    }
+}
 
-        > .header-video-bg {
-            flex: 1 1 auto;
-            height: auto;
-            min-height: 0;
-            max-height: none;
-        }
+html.is-layout-g-loading {
+    overflow: hidden;
 
-        > .header-video-bg > .header-preloader {
+    body.home > main > .section.section--header.section--layout-g > .header-video-bg {
+        z-index: 2;
+        overflow: visible;
+
+        > .header-preloader {
+            top: 0;
+            bottom: auto;
+            height: min(86vh, calc(100vh - 48px));
+            border-radius: 18px;
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
+
+            @media (max-width: 1200px) {
+                height: 600px;
+            }
         }
     }
 }
@@ -119,7 +126,25 @@ body.home {
             position: relative;
             border-radius: 18px;
             overflow: hidden;
-            max-height: 86vh;
+            height: 1px;
+            min-height: 0;
+            max-height: none;
+            transition: height 0.3s ease-out;
+
+            &.is-expanded {
+                height: var(--header-video-height, 86vh);
+                max-height: 86vh;
+
+                > .header-preloader {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: none;
+                }
+
+                > .header-video-bg__content {
+                    opacity: 1;
+                }
+            }
 
             > .header-preloader {
                 position: absolute;
@@ -152,9 +177,10 @@ body.home {
             }
 
             @media (max-width: 1200px) {
-                max-height: 600px;
-                min-height: 600px;
-                height: 600px;
+                &.is-expanded {
+                    height: 600px;
+                    max-height: 600px;
+                }
             }
 
             .header-video-bg__content {
@@ -168,6 +194,8 @@ body.home {
                 align-items: center;
                 text-align: center;
                 color: #fff;
+                opacity: 0.1;
+                transition: opacity 0.3s ease-out;
 
                 @media (max-width: 992px) {
                     width: 86%;

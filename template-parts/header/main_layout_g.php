@@ -67,7 +67,7 @@ $card_count = max( 0, min( 5, $card_count ) );
         <div class="row">
             <div class="col-12 block-xy--custom">
                 <!-- Header + Footer -->
-                <?php if ( have_rows( 'header-footer' ) || $header_has_foot ) : ?>
+                <?php /* if ( have_rows( 'header-footer' ) || $header_has_foot ) : ?>
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-xl-8 head-foot-wrapper">
@@ -118,7 +118,7 @@ $card_count = max( 0, min( 5, $card_count ) );
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
+                <?php endif; */ ?>
 
                 <?php if ( $card_count > 0 && have_rows( 'header_cards_content' ) ) : ?>                    
                     <div class="header-cards header-cards--count-<?php echo esc_attr( (string) $card_count ); ?>">

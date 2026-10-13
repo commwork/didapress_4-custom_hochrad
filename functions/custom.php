@@ -35,7 +35,18 @@ function didapress_4_custom_layout_g_preloader_flag() {
 		return;
 	}
 
-	echo "<script>document.documentElement.classList.add('is-layout-g-loading');</script>\n";
+	$video_src = get_stylesheet_directory_uri() . '/assets/video/homepage-globe.mp4';
+	$image_src = get_stylesheet_directory_uri() . '/assets/img/video-placeholder.jpg';
+
+	echo '<script>';
+	echo '(function(){';
+	echo 'var src=window.matchMedia("(min-width: 768px)").matches?' . wp_json_encode( $video_src ) . ':' . wp_json_encode( $image_src ) . ';';
+	echo 'window.hochradHeaderMedia=src;';
+	echo 'document.documentElement.classList.add("is-header-opening");';
+	echo 'try{if(localStorage.getItem("hochrad-header-ready")!==src){document.documentElement.classList.add("is-layout-g-loading");}}';
+	echo 'catch(e){document.documentElement.classList.add("is-layout-g-loading");}';
+	echo '})();';
+	echo "</script>\n";
 }
 add_action( 'wp_head', 'didapress_4_custom_layout_g_preloader_flag', 0 );
 
