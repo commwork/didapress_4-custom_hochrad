@@ -23,6 +23,15 @@ $card_count = max( 0, min( 5, $card_count ) );
     <!-- Custom text + video background -->
     <?php if ( is_front_page() ) : ?>
         <div class="header-video-bg is-paused" data-header-video>
+            <div class="header-preloader" aria-hidden="true">
+                <?php
+                $header_preloader_svg = get_stylesheet_directory() . '/assets/svg/bouncing-circles.svg';
+                if ( is_readable( $header_preloader_svg ) ) {
+                    // Theme SVG; keep SMIL <animate>, which kses would strip.
+                    echo file_get_contents( $header_preloader_svg ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                }
+                ?>
+            </div>
             <div class="header-video-bg__content">
                 <div class="section__head">
                     <h1 class="h1">Willkommen am Gymnasium Hochrad.</h1>

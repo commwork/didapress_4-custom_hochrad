@@ -18,9 +18,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Whether the current page header is layout G.
+ *
+ * @return bool
+ */
+function didapress_4_custom_is_layout_g() {
+	return function_exists( 'didapress_4_get_page_header_layout' )
+		&& didapress_4_get_page_header_layout() === 'main_layout_g';
+}
+
+/**
+ * Flag layout G before paint so the hero and navigation stay hidden until ready.
+ */
+function didapress_4_custom_layout_g_preloader_flag() {
+	if ( ! didapress_4_custom_is_layout_g() ) {
+		return;
+	}
+
+	echo "<script>document.documentElement.classList.add('is-layout-g-loading');</script>\n";
+}
+add_action( 'wp_head', 'didapress_4_custom_layout_g_preloader_flag', 0 );
+
+/**
  * Reuse the layout H header-video controls on the homepage video.
  */
 function didapress_4_custom_header_video_script() {
+	if ( didapress_4_custom_is_layout_g() ) {
+		$preloader = get_stylesheet_directory() . '/assets/js/header-preloader.js';
+		if ( file_exists( $preloader ) ) {
+			wp_enqueue_script(
+				'didapress_4_custom_headerPreloaderJs',
+				get_stylesheet_directory_uri() . '/assets/js/header-preloader.js',
+				array(),
+				(string) filemtime( $preloader ),
+				true
+			);
+		}
+	}
+
 	if ( ! is_front_page() ) {
 		return;
 	}

@@ -1,0 +1,1 @@
+﻿<svg width="60" height="60" viewBox="0 0 50 50"><rect x="10" y="20" width="30" height="10" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"></rect><rect x="10" y="20" width="30" height="10" rx="2" fill="#FFFFFF" opacity="0.3"><animate attributeName="width" values="0;30;0" dur="2s" repeatCount="indefinite"></animate></rect></svg>

@@ -2,6 +2,31 @@
  * Customer frontend overrides.
  * Compiled to assets/css/custom.css and loaded after the parent theme stylesheet.
  */
+html.is-layout-g-loading {
+  overflow: hidden;
+}
+html.is-layout-g-loading body.home .main-navigation {
+  visibility: hidden;
+  opacity: 0;
+}
+html.is-layout-g-loading body.home > main > .section.section--header.section--layout-g {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100vh;
+}
+html.is-layout-g-loading body.home > main > .section.section--header.section--layout-g > .header-video-bg {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+}
+html.is-layout-g-loading body.home > main > .section.section--header.section--layout-g > .header-video-bg > .header-preloader {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 body.home {
   margin-top: -120px !important;
 }
@@ -25,6 +50,9 @@ body.home.has-top-bar aside.top-bar {
 }
 body.home.has-top-bar aside.top-bar .top-bar__inner {
   padding-block: 10px;
+}
+body.home .main-navigation {
+  transition: opacity 0.45s ease, visibility 0.45s ease;
 }
 body.home:not(.scrolleddown-10) .main-navigation:not(.is-open) {
   background-color: transparent !important;
@@ -60,6 +88,24 @@ body.home > main > .section.section--header.section--layout-g > .header-video-bg
   border-radius: 18px;
   overflow: hidden;
   max-height: 86vh;
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg > .header-preloader {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #661a1a;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+body.home > main > .section.section--header.section--layout-g > .header-video-bg > .header-preloader svg {
+  display: block;
+  width: 6rem;
+  height: 6rem;
 }
 body.home > main > .section.section--header.section--layout-g > .header-video-bg::before {
   content: "";

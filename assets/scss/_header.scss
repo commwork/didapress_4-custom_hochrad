@@ -1,3 +1,32 @@
+html.is-layout-g-loading {
+    overflow: hidden;
+
+    body.home .main-navigation {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    body.home > main > .section.section--header.section--layout-g {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        max-height: 100vh;
+
+        > .header-video-bg {
+            flex: 1 1 auto;
+            height: auto;
+            min-height: 0;
+            max-height: none;
+        }
+
+        > .header-video-bg > .header-preloader {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    }
+}
+
 body.home {
     margin-top: -120px !important;
 
@@ -5,6 +34,7 @@ body.home {
         margin-top: -80px !important;
     }
 
+    // Top bar (all layouts)
     &.has-top-bar {
         aside.top-bar {
             z-index: 9999;
@@ -18,7 +48,6 @@ body.home {
             margin-top: 24px;
             margin-left: 12px;
             margin-right: 12px;
-            // opacity: .8;
     
             .top-bar__inner {
                 padding-block: 10px;
@@ -26,6 +55,10 @@ body.home {
         }
     }
 
+
+    .main-navigation {
+        transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
 
     // Main navigation
     &:not(.scrolleddown-10) {
@@ -81,12 +114,32 @@ body.home {
         padding: 24px !important;
         background-color: #530505;
         background-image: none;
-        
+
         > .header-video-bg {
             position: relative;
             border-radius: 18px;
             overflow: hidden;
             max-height: 86vh;
+
+            > .header-preloader {
+                position: absolute;
+                inset: 0;
+                z-index: 4;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #661a1a;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.45s ease, visibility 0.45s ease;
+
+                svg {
+                    display: block;
+                    width: 6rem;
+                    height: 6rem;
+                }
+            }
 
             &::before { // top gradient
                 content: "";
@@ -126,6 +179,13 @@ body.home {
                         line-height: 1;
                     }
                 }
+
+                // Colored background for headline and intro text (optional)
+                // h1.h1,
+                // .section__foot .intro-text {
+                //     background-color: rgba($color: #021629, $alpha: .5);
+                //     padding: 12px;
+                // }
             }
             
             &::after { // video overlay
