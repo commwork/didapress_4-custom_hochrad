@@ -289,10 +289,12 @@ body.home > main > .section.section--header.section--layout-g > .container-fluid
 body.home > main > .section.section--home-special {
   background-color: #530505;
   padding-top: 0;
+  padding-block-end: 40px !important;
 }
 body.home > main > .section.section--home-special > .container {
   width: 100%;
   max-width: 100%;
+  padding-inline: 24px !important;
 }
 body.home > main > .section.section--home-special > .container > .home-special-quicklinks {
   background-color: #daedff;

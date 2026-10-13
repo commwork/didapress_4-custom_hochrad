@@ -355,10 +355,12 @@ body.home {
     > main > .section.section--home-special {
         background-color: #530505;
         padding-top: 0;
+        padding-block-end: 40px !important;
 
         > .container {           
             width: 100%;
             max-width: 100%;
+            padding-inline: 24px !important;
 
             > .home-special-quicklinks {
                 background-color: #daedff;
