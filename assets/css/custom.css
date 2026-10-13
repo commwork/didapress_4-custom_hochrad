@@ -293,7 +293,7 @@ body.home > main > .section.section--header.section--layout-g > .container-fluid
 }
 body.home > main > .section.section--home-special {
   background-color: #530505;
-  padding-top: 0;
+  padding-top: 24px;
   padding-block-end: 40px !important;
 }
 body.home > main > .section.section--home-special > .container {
