@@ -139,16 +139,6 @@ body.home {
                 height: var(--header-video-height, 86vh);
                 max-height: 86vh;
 
-                // &::after {
-                //     content: "";
-                //     position: absolute;
-                //     inset: 0;
-                //     z-index: 2;
-                //     border-radius: inherit;
-                //     pointer-events: none;
-                //     box-shadow: inset 0 0 1.5rem rgb(0 0 0 / 50%);
-                // }
-
                 > .header-preloader {
                     opacity: 0;
                     visibility: hidden;
@@ -227,13 +217,6 @@ body.home {
                     margin-left: auto;
                     margin-right: auto;                    
                 }
-
-                // Colored background for headline and intro text (optional)
-                // h1.h1,
-                // .section__foot .intro-text {
-                //     background-color: rgba($color: #021629, $alpha: .5);
-                //     padding: 12px;
-                // }
             }
             
             &::after { // video overlay
@@ -343,6 +326,10 @@ body.home {
         > .container-fluid {
             position: relative;
             z-index: 1;
+
+            .header-card {
+                background-color: #c10a27;
+            }
         }
     
         @media (prefers-reduced-motion: reduce) {

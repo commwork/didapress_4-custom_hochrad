@@ -276,6 +276,9 @@ body.home > main > .section.section--header.section--layout-g > .container-fluid
   position: relative;
   z-index: 1;
 }
+body.home > main > .section.section--header.section--layout-g > .container-fluid .header-card {
+  background-color: #c10a27;
+}
 @media (prefers-reduced-motion: reduce) {
   body.home > main > .section.section--header.section--layout-g > .header-video-bg {
     display: none;
