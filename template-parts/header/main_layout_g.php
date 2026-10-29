@@ -51,7 +51,7 @@ $card_count = max( 0, min( 5, $card_count ) );
                 decoding="async"
             >
             <video class="header-video-bg__media header-video__media" muted loop playsinline preload="metadata">
-                <source src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/video/homepage-globe.mp4' ); ?>" type="video/mp4" media="(min-width: 768px)">
+                <source src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/video/Hochrad_Drohnenvideo.mp4' ); ?>" type="video/mp4" media="(min-width: 768px)">
             </video>
 
             <button type="button" class="header-video__stop" aria-label="<?php esc_attr_e( 'Video stoppen', 'didapress_4' ); ?>">

@@ -35,7 +35,7 @@ function didapress_4_custom_layout_g_preloader_flag() {
 		return;
 	}
 
-	$video_src = get_stylesheet_directory_uri() . '/assets/video/homepage-globe.mp4';
+	$video_src = get_stylesheet_directory_uri() . '/assets/video/Hochrad_Drohnenvideo.mp4';
 	$image_src = get_stylesheet_directory_uri() . '/assets/img/video-placeholder.jpg';
 
 	echo '<script>';
