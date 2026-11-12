@@ -71,15 +71,15 @@ function didapress_4_custom_header_video_script() {
 		return;
 	}
 
-	$script = get_template_directory() . '/assets-frontend/js/header-video.js';
+	$script = get_stylesheet_directory() . '/assets/js/header-video-hochrad.js';
 
 	if ( ! file_exists( $script ) ) {
 		return;
 	}
 
 	wp_enqueue_script(
-		'didapress_4_headerVideoJs',
-		get_template_directory_uri() . '/assets-frontend/js/header-video.js',
+		'didapress_4_custom_headerVideoJs',
+		get_stylesheet_directory_uri() . '/assets/js/header-video-hochrad.js',
 		array(),
 		(string) filemtime( $script ),
 		true
