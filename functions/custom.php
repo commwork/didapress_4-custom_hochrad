@@ -71,7 +71,7 @@ function didapress_4_custom_header_video_script() {
 		return;
 	}
 
-	$script = get_template_directory() . '/assets/js/header-video.js';
+	$script = get_template_directory() . '/assets-frontend/js/header-video.js';
 
 	if ( ! file_exists( $script ) ) {
 		return;
@@ -79,7 +79,7 @@ function didapress_4_custom_header_video_script() {
 
 	wp_enqueue_script(
 		'didapress_4_headerVideoJs',
-		get_template_directory_uri() . '/assets/js/header-video.js',
+		get_template_directory_uri() . '/assets-frontend/js/header-video.js',
 		array(),
 		(string) filemtime( $script ),
 		true
