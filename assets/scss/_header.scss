@@ -365,6 +365,19 @@ body.home {
             a {
                 border-radius: 18px;
                 text-decoration: none;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 0;
+                    height: 2px;
+                    background-color: currentColor;
+                    pointer-events: none;
+                    border-radius: 2px;
+                    transition: width .2s;
+                }
             }
         }
 
@@ -373,7 +386,10 @@ body.home {
                 &:hover {
                     >.header-card__body {
                         > .btn {
-                            text-decoration: underline !important;
+                            &::before {
+                                width: var(--hover-c-max);
+                                text-decoration: none;
+                            }
                         }
                     }
                 }

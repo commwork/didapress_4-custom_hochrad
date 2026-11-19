@@ -310,9 +310,22 @@ body.home > main > .section.section--header.section--layout-g > .container-fluid
   border-radius: 18px;
   text-decoration: none;
 }
+body.home > main > .section.section--header.section--layout-g > .container-fluid > .row > .block-xy--custom > .header-cards a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  pointer-events: none;
+  border-radius: 2px;
+  transition: width 0.2s;
+}
 @media (hover: hover) {
-  body.home > main > .section.section--header.section--layout-g > .container-fluid > .row > .block-xy--custom .header-card:hover > .header-card__body > .btn {
-    text-decoration: underline !important;
+  body.home > main > .section.section--header.section--layout-g > .container-fluid > .row > .block-xy--custom .header-card:hover > .header-card__body > .btn::before {
+    width: var(--hover-c-max);
+    text-decoration: none;
   }
 }
 body.home > main > .section.section--home-special {
