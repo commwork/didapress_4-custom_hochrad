@@ -364,6 +364,19 @@ body.home {
 
             a {
                 border-radius: 18px;
+                text-decoration: none;
+            }
+        }
+
+        .header-card {
+            @media (hover: hover) {
+                &:hover {
+                    >.header-card__body {
+                        > .btn {
+                            text-decoration: underline !important;
+                        }
+                    }
+                }
             }
         }
     }

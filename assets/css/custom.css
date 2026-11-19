@@ -308,6 +308,12 @@ body.home > main > .section.section--header.section--layout-g > .container-fluid
 }
 body.home > main > .section.section--header.section--layout-g > .container-fluid > .row > .block-xy--custom > .header-cards a {
   border-radius: 18px;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  body.home > main > .section.section--header.section--layout-g > .container-fluid > .row > .block-xy--custom .header-card:hover > .header-card__body > .btn {
+    text-decoration: underline !important;
+  }
 }
 body.home > main > .section.section--home-special {
   background-color: #530505;
