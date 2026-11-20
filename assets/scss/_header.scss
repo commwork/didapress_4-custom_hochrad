@@ -362,9 +362,16 @@ body.home {
                 gap: 12px;
             }
 
-            a {
+            .header-card {
                 border-radius: 18px;
+            }
+
+            .header-card__link {
                 text-decoration: none;
+            }
+
+            .header-card__link-text {
+                position: relative;
 
                 &::before {
                     content: "";
@@ -379,19 +386,14 @@ body.home {
                     transition: width .2s;
                 }
             }
-        }
 
-        .header-card {
+            .header-card__link:focus-visible .header-card__link-text::before {
+                width: var(--hover-c-max, 40px);
+            }
+
             @media (hover: hover) {
-                &:hover {
-                    >.header-card__body {
-                        > .btn {
-                            &::before {
-                                width: var(--hover-c-max);
-                                text-decoration: none;
-                            }
-                        }
-                    }
+                .header-card__link:hover .header-card__link-text::before {
+                    width: var(--hover-c-max, 40px);
                 }
             }
         }

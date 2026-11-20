@@ -131,19 +131,11 @@ $card_count = max( 0, min( 5, $card_count ) );
                             if ( $image < 1 && $title === '' && ! $has_link ) {
                                 continue;
                             }
-                            $target   = $has_link && isset( $link_button['target'] ) && $link_button['target'] !== ''
+                            $target = $has_link && isset( $link_button['target'] ) && $link_button['target'] !== ''
                                 ? (string) $link_button['target']
                                 : '_self';
-                            $card_tag = $has_link ? 'a' : 'article';
                             ?>
-                            <<?php echo tag_escape( $card_tag ); ?>
-                                class="header-card<?php echo $has_link ? ' pseudo-link' : ''; ?>"
-                                <?php if ( $has_link ) : ?>
-                                    href="<?php echo esc_url( $link_button['url'] ); ?>"
-                                    target="<?php echo esc_attr( $target ); ?>"
-                                    <?php echo '_blank' === $target ? ' rel="noopener noreferrer"' : ''; ?>
-                                <?php endif; ?>
-                            >
+                            <div class="header-card">
                                 <?php if ( $image > 0 ) : ?>
                                     <div class="header-card__image">
                                         <?php
@@ -169,14 +161,19 @@ $card_count = max( 0, min( 5, $card_count ) );
                                             </h2>
                                         <?php endif; ?>
                                         <?php if ( $has_link ) : ?>
-                                            <span class="btn btn--secondary header-card__link">
-                                                <?php echo esc_html( (string) ( $link_button['title'] ?? '' ) ); ?>
-                                                <span class="icon-wrapper size-1-25em"></span>
-                                            </span>
+                                            <a class="btn btn--secondary header-card__link" href="<?php echo esc_url( $link_button['url'] ); ?>" target="<?php echo esc_attr( $target ); ?>"<?php echo '_blank' === $target ? ' rel="noopener noreferrer"' : ''; ?>>
+                                                <span class="header-card__link-text">
+                                                    <?php echo esc_html( (string) ( $link_button['title'] ?? '' ) ); ?>
+                                                    <span class="icon-wrapper size-1-25em"></span>
+                                                </span>
+                                                <?php if ( $image > 0 ) : ?>
+                                                    <span class="header-card__image-hit" aria-hidden="true"></span>
+                                                <?php endif; ?>
+                                            </a>
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
-                            </<?php echo tag_escape( $card_tag ); ?>>
+                            </div>
                         <?php endwhile; ?>
                     </div>                    
                 <?php endif; ?>
